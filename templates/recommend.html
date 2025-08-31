@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShelfMate</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+    .text-white{
+        color:#4B0082; /* dark indigo for better contrast */
+    }
+    .small-text {
+        font-size: 0.8em;
+    }
+</style>
+</head>
+<body style="background-color:#E6E6FA">
+
+    <nav class="navbar" style="background-color:#9061ef; height:70px; padding:0 20px; display:flex; align-items:center;">
+        <a class="navbar-brand" href="/" style="display:flex; align-items:center;">
+            <img src="{{ url_for('static', filename='ShelfMate_logo.png') }}" alt="ShelfMate Logo" style="height:50px;">
+        </a>
+        <ul class="nav navbar-nav" style="color:#FFFDD0; display:flex; align-items:center; margin:0; padding:0; list-style:none; flex-grow:1;">
+            <li style="margin-right:20px;">
+                <a href="/" style="color:#FFFDD0; font-weight:bold; font-size:18px; line-height:70px; text-decoration:none; transition: color 0.3s;"
+                   onmouseover="this.style.color='#E6E6FA'; this.style.backgroundColor='transparent';"
+                   onmouseout="this.style.color='#FFFDD0'; this.style.backgroundColor='transparent';">Home</a>
+            </li>
+            <li style="margin-right:20px;">
+                <a href="/recommend" style="font-family: 'Dancing Script', cursive; color:#FFFDD0; font-weight:bold; font-size:18px; line-height:70px; text-decoration:none; transition: color 0.3s;"
+                   onmouseover="this.style.color='#E6E6FA'; this.style.backgroundColor='transparent';"
+                   onmouseout="this.style.color='#FFFDD0'; this.style.backgroundColor='transparent';">Recommend</a>
+            </li>
+            <li>
+                <a href="/contact" style="color:#FFFDD0; font-weight:bold; font-size:18px; line-height:70px; text-decoration:none; transition: color 0.3s;"
+                   onmouseover="this.style.color='#E6E6FA'; this.style.backgroundColor='transparent';"
+                   onmouseout="this.style.color='#FFFDD0'; this.style.backgroundColor='transparent';">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-white" style="font-size:50px">Recommend Books</h1>
+                <form action="/recommend_books" method="post">
+                    <input name="user_input" type="text" class="form-control"><br>
+                    <input type="submit" class="btn btn-lg btn-warning">
+                </form>
+            </div>
+
+            {% if message %}
+                <div class="alert alert-warning" role="alert" style="margin-top:20px;">
+                    {{ message }}
+                </div>
+            {% endif %}
+
+            {% if data %}
+
+             {% for i in data %}
+                <div class="col-md-3" style="margin-top:50px">
+                    <div class="card">
+                        <div class="card-body">
+                            <a href="{{ url_for('book_detail', book_title=i[0]) }}">
+                                <img class="card-img-top" src="{{i[2]}}">
+                            </a>
+                            <a href="{{ url_for('book_detail', book_title=i[0]) }}">
+                                <p class="text-white" style="font-weight:bold;">{{i[0]}}</p>
+                            </a>
+                            <h6 class="text-white small-text">{{i[1]}}</h6>
+                        </div>
+                    </div>
+                </div>
+             {% endfor %}
+
+            {% endif %}
+
+        </div>
+    </div>
+
+</body>
+</html>

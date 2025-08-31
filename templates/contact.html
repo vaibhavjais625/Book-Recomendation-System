@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - ShelfMate</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #E6E6FA; /* lavender background */
+            color: #4B0082; /* dark indigo text */
+            font-family: Arial, sans-serif;
+            padding: 40px;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: #4B0082;
+        }
+        a {
+            color: #9061ef;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #4B0082;
+            text-decoration: underline;
+        }
+        p.intro {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        ul.links {
+            list-style: none;
+            padding: 0;
+        }
+        ul.links li {
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar" style="background-color:#9061ef; height:70px; padding:0 20px; display:flex; align-items:center;">
+        <a class="navbar-brand" href="/" style="display:flex; align-items:center;">
+            <img src="{{ url_for('static', filename='ShelfMate_logo.png') }}" alt="ShelfMate Logo" style="height:50px;">
+        </a>
+        <ul class="nav navbar-nav" style="color:#FFFDD0; display:flex; align-items:center; margin:0; padding:0; list-style:none; flex-grow:1;">
+            <li style="margin-right:20px;">
+                <a href="/" style="color:#FFFDD0; font-weight:bold; font-size:18px; line-height:70px; text-decoration:none; transition: color 0.3s;"
+                   onmouseover="this.style.color='#E6E6FA'; this.style.backgroundColor='transparent';"
+                   onmouseout="this.style.color='#FFFDD0'; this.style.backgroundColor='transparent';">Home</a>
+            </li>
+            <li style="margin-right:20px;">
+                <a href="/recommend" style="color:#FFFDD0; font-weight:bold; font-size:18px; line-height:70px; text-decoration:none; transition: color 0.3s;"
+                   onmouseover="this.style.color='#E6E6FA'; this.style.backgroundColor='transparent';"
+                   onmouseout="this.style.color='#FFFDD0'; this.style.backgroundColor='transparent';">Recommend</a>
+            </li>
+            <li>
+                <a href="/contact" style="color:#FFFDD0; font-weight:bold; font-size:18px; line-height:70px; text-decoration:none; transition: color 0.3s;"
+                   onmouseover="this.style.color='#E6E6FA'; this.style.backgroundColor='transparent';"
+                   onmouseout="this.style.color='#FFFDD0'; this.style.backgroundColor='transparent';">Contact</a>
+            </li>
+        </ul>
+    </nav>
+    <div class="container">
+        <h1>Contact Me</h1>
+        <p class="intro">Hello! I'm Kanika Chaurasia, from IIIT Naya Raipur. I am passionate about technology and work on solving real world problems using technology. Feel free to connect with me on LinkedIn and GitHub.</p>
+        <ul class="links">
+            <li><a href="https://www.linkedin.com/in/kanika-chaurasia-a13868257" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+            <li><a href="https://github.com/Kanika-1404" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+        </ul>
+    </div>
+</body>
+</html>
